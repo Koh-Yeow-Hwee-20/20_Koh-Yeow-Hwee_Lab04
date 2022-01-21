@@ -24,11 +24,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //PlayerMovement 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
         PlayerRigidbody.AddForce(movement * speed * Time.deltaTime);
 
+        //Win Scene when all coins are collected
         if (coinCount == Totalcoin)
         {
             SceneManager.LoadScene("WinScene");
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //Collision for Coins
         if(other.gameObject.tag == "Coin")
         {
             coinCount++;
@@ -44,16 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+
+        //Collision for Hazards
         if (other.gameObject.tag == "Hazard")
         {
             SceneManager.LoadScene("LoseScene");
         }
     }
-    /*
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    */
 }
