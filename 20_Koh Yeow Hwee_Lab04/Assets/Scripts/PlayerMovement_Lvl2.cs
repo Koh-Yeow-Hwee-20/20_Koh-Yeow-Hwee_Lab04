@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement_Lvl2 : MonoBehaviour
 {
     //PlayerMovement
     public float speed;
@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     //Coins Collected
     public GameObject Coins;
     private int coinCount;
-    int Totalcoin = 5;
+    int Totalcoins = 7;
 
 
     // Start is called before the first frame update
@@ -31,16 +31,16 @@ public class PlayerMovement : MonoBehaviour
         PlayerRigidbody.AddForce(movement * speed * Time.deltaTime);
 
         //Win Scene when all coins are collected
-        if (coinCount == Totalcoin)
+        if (coinCount == Totalcoins)
         {
-            SceneManager.LoadScene("GamePlay_L2");
+            SceneManager.LoadScene("WinScene");
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         //Collision for Coins
-        if(other.gameObject.tag == "Coin")
+        if (other.gameObject.tag == "Coin")
         {
             coinCount++;
             Coins.GetComponent<Text>().text = "Coins Collected = " + coinCount;
