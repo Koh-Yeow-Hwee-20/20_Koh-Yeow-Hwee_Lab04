@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GamePlay_Level1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/GamePlay_L2.unity
+    guid: ed08284094260aa40a240774fa9883b1
+  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 32750bdb3a0031e4e80a627ebc6ef5b9
   - enabled: 1
